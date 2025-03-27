@@ -11,7 +11,7 @@ export class Footer extends Component<Props, State> {
   renderGithubLink = () => {
     return (
       <a
-        href="https://github.com/LemonUnit/csv-editor-online"
+        href="https://github.com/dbsdenis/csv-editor-online"
         target="_blank"
         rel="noopener noreferrer"
         className="GitHubIcon"
@@ -25,13 +25,13 @@ export class Footer extends Component<Props, State> {
   renderLemonUnitLink = () => {
     return (
       <a
-        href="https://lemonunit.com/"
+        href="https://github.com/dbsdenis"
         target="_blank"
         rel="noopener noreferrer"
         className="LemonUnitIcon"
-        title="Go to LemonUnit home page"
+        title="See my profile"
       >
-        <img src="lemonunit-logo.png" alt="LemonUnit logo" />
+        <img src="https://avatars.githubusercontent.com/u/2111170?v=4" alt="Denilson Silva" />
       </a>
     );
   }
