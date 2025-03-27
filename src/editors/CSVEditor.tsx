@@ -107,7 +107,7 @@ export class CSVEditor extends Component<Props, State> {
   renderConfigBar = () => (
     <div className="ConfigBar">
       <div className="ConfigBarWidget">
-        <span className="ConfigBarWidgetLabel">CSV Delimeter:</span>
+        <span className="ConfigBarWidgetLabel">CSV Delimitador:</span>
         <span className="ConfigBarWidgetContent">
           <Radio.Group
             onChange={this.handleDelimiterChange}

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Layout, Menu, Dropdown } from "antd";
+import { Layout, Menu } from "antd";
 import { UploadOutlined, DownloadOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 
 import { EditorMode } from "../App";
-import FileUpload from "./FileUpload";
 
 interface Props {
   onModeChange: (mode: EditorMode) => void;
@@ -19,6 +18,9 @@ export const NAVIGATION_HEIGHT = 64;
 export const CONFIG_BAR_HEIGHT = 40;
 
 export class Navigation extends Component<Props, State> {
+  // Referência para o input de arquivo oculto
+  fileInputRef = React.createRef<HTMLInputElement>();
+
   renderLogo = () => {
     return (
       <div className="logo">
@@ -27,10 +29,30 @@ export class Navigation extends Component<Props, State> {
     );
   }
 
-  renderFileUploadOverlay = () => {
-    return (
-      <FileUpload onFileUploaded={this.props.onFileUpload} />
-    );
+  // Função para acionar o clique no input de arquivo oculto
+  handleImportClick = () => {
+    if (this.fileInputRef.current) {
+      this.fileInputRef.current.click();
+    }
+  }
+
+  // Função para processar o arquivo selecionado
+  handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      
+      reader.onload = (event) => {
+        if (event.target && event.target.result) {
+          this.props.onFileUpload(event.target.result as string);
+        }
+      };
+      
+      reader.readAsText(file);
+      
+      // Limpar o input para permitir selecionar o mesmo arquivo novamente
+      e.target.value = '';
+    }
   }
 
   render() {
@@ -57,25 +79,16 @@ export class Navigation extends Component<Props, State> {
       {
         key: 'import',
         label: (
-          <Dropdown
-            trigger={['click']}
-            dropdownRender={() => (
-              <div style={{ background: '#fff', padding: '8px', borderRadius: '4px', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)' }}>
-                <FileUpload onFileUploaded={this.props.onFileUpload} />
-              </div>
-            )}
-          >
-            <span>
-              <UploadOutlined /> Import
-            </span>
-          </Dropdown>
+          <span onClick={this.handleImportClick}>
+            <UploadOutlined /> Importar
+          </span>
         )
       },
       {
         key: 'export',
         label: (
           <span onClick={this.props.onExportCSV}>
-            <DownloadOutlined /> Export
+            <DownloadOutlined /> Exportar
           </span>
         )
       }
@@ -90,6 +103,14 @@ export class Navigation extends Component<Props, State> {
           selectedKeys={[this.props.mode]}
           style={{ lineHeight: `${NAVIGATION_HEIGHT}px` }}
           items={menuItems}
+        />
+        {/* Input de arquivo oculto */}
+        <input 
+          type="file"
+          ref={this.fileInputRef}
+          style={{ display: 'none' }}
+          onChange={this.handleFileChange}
+          accept=".csv,.txt"
         />
       </Layout.Header>
     )
