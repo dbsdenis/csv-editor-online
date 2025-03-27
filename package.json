@@ -1,0 +1,68 @@
+{
+    "name": "csv-editor-online",
+    "version": "0.1.0",
+    "homepage": "http://lemonunit.github.io/csv-editor-online",
+    "dependencies": {
+        "@ant-design/icons": "^6.0.0",
+        "@types/jest": "29.5.14",
+        "@types/node": "22.13.14",
+        "@types/react": "19.0.12",
+        "@types/react-dom": "19.0.4",
+        "ajv": "^8.17.1",
+        "antd": "^5.24.5",
+        "brace": "^0.11.1",
+        "buffer": "^6.0.3",
+        "csv-string": "^4.1.1",
+        "customize-cra": "^1.0.0",
+        "glob": "^11.0.1",
+        "jest": "^29.7.0",
+        "lodash": "^4.17.21",
+        "react": "^19.0.0",
+        "react-ace": "^10.1.0",
+        "react-app-rewired": "^2.2.1",
+        "react-dom": "^19.0.0",
+        "react-scripts": "^5.0.1",
+        "react-spreadsheet": "^0.9.5",
+        "rimraf": "^5.0.5",
+        "stream-browserify": "^3.0.0",
+        "throttle-debounce": "^5.0.2",
+        "typescript": "5.8.2"
+    },
+    "scripts": {
+        "start": "react-app-rewired start",
+        "build": "react-app-rewired build",
+        "test": "react-app-rewired test",
+        "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@babel/plugin-transform-class-properties": "^7.25.9",
+        "@babel/plugin-transform-nullish-coalescing-operator": "^7.26.6",
+        "@babel/plugin-transform-numeric-separator": "^7.25.9",
+        "@babel/plugin-transform-optional-chaining": "^7.25.9",
+        "@babel/plugin-transform-private-methods": "^7.25.9",
+        "@babel/plugin-transform-private-property-in-object": "^7.25.9",
+        "@types/throttle-debounce": "^5.0.2",
+        "babel-plugin-import": "^1.13.8",
+        "eslint-utils": "3.0.0",
+        "gh-pages": "^6.3.0",
+        "less": "^4.2.2",
+        "less-loader": "^12.2.0"
+    }
+}

@@ -1,0 +1,80 @@
+.logo {
+  color: #fff;
+  float: left;
+  margin-right: 30px;
+}
+
+.Editor {
+  width: 100vw;
+  height: calc(100vh - 64px - 30px);
+  overflow: auto;
+}
+
+.ant-layout-header {
+  padding: 0 30px !important;
+}
+
+.Spreadsheet {
+  font-size: 12px !important;
+}
+
+.Spreadsheet th {
+  min-width: 30px !important;
+  min-height: 20px !important;
+}
+
+.Spreadsheet td {
+  min-width: 100px !important;
+  min-height: 20px !important;
+}
+
+.SpreadsheetTable tr:nth-child(2) td {
+  font-weight: bold;
+}
+
+.ConfigBar {
+  padding: 5px 30px;
+  background: #fff;
+  height: 40px;
+  font-size: 12px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.ConfigBar .ConfigBarWidgetLabel {
+  padding-right: 10px;
+  color: #777;
+}
+
+.Footer {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  background: #fff;
+  font-size: 13px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.GitHubIcon {
+  color: #ccc;
+  font-size: 20px;
+}
+
+.GitHubIcon:hover {
+  color: #333;
+}
+
+.LemonUnitIcon {
+  position: relative;
+}
+
+.LemonUnitIcon img {
+  top: -1px;
+  position: relative;
+  height: 24px;
+  opacity: 0.4;
+  transition: opacity 0.4s ease-out;
+}
+
+.LemonUnitIcon:hover img {
+  opacity: 1;
+}
